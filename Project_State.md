@@ -38,7 +38,23 @@ v
 
 ---
 
-## Next Steps & Development
-* **Circuit Design:** Schematics for passive RC filter design for the de-esser circuit tied to the potentiometer.
-* **Clipping Stage:** Selecting diode configurations for ultra-transparent dynamic peak clipping.
-* **Power Delivery:** Managing active power delivery routing exclusively when the toggle switch engages ANC mode.
+## Phase 1: DSP Core & Digital Filtering (Week 1)
+* [ ] **Teensy Audio Library Setup:** Configure Teensyduino / PlatformIO environment for Teensy 4.x + Audio Shield.
+* [ ] **De-Esser Logic:** Implement sidechain high-pass filter feeding a band-passed dynamic threshold attenuator (~5kHz–8kHz).
+* [ ] **Dynamic Peak Clipper:** Write a low-latency soft/hard clipping function with configurable knee curves.
+* [ ] **Benchmarking:** Measure DSP cycle counts and audio pass-through latency in microsecond buffers.
+
+## Phase 2: Active Noise Cancellation Prototype (Week 2)
+* [ ] **Dual-Microphone Input Pipeline:** Configure reference (ambient) and error (internal) mic input streams on the audio shield.
+* [ ] **Phase Inversion & LMS Filter:** Implement a normalized Least Mean Squares (NLMS) adaptive filter algorithm for active noise cancellation.
+* [ ] **Frequency Response Calibration:** Map phase shifts and group delays to avoid unwanted constructive interference at higher frequencies.
+
+## Phase 3: Mode Switching & Control Interface (Week 3)
+* [ ] **State Machine Architecture:** Build smooth crossfade state logic between Standby (Clipper/De-Esser) and Active (ANC) modes to prevent audio pops/clicks.
+* [ ] **Hardware I/O Mapping:** Wire up rotary encoders and toggle switches for threshold/gain adjustments and mode toggling.
+* [ ] **OLED / LED Status Feedback:** Add lightweight visual feedback for current operational mode and gain reduction metering.
+
+## Phase 4: Calibration, Enclosure Prep & Tuning (Week 4)
+* [ ] **Acoustic Calibration:** Fine-tune adaptive filter convergence speeds against real ambient noise profiles.
+* [ ] **Clipping & Sibilance Pass-Through Tests:** Profile audio quality across various mic and line-level sources.
+* [ ] **Hardware Enclosure Wiring Prep:** Document final pinouts, pot values, and power requirements for final PCB/enclosure assembly.
